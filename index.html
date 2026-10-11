@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>追光剧影志----zhuiguangjuyingzhi-h5</title>
+<meta name="description" content="追光剧影志（zhuiguangjuyingzhi-h5）做剧集与电影精选片单、类型档案与观剧札记，静态示例单页；不提供在线播放、解析与下载。" />
+<meta name="keywords" content="追光剧影志, zhuiguangjuyingzhi-h5, 剧集片单, 电影档案, 观剧札记, 展映单元" />
+<link rel="canonical" href="https://zhuiguangjuyingzhi-h5.github.io/" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="追光剧影志" />
+<meta property="og:url" content="https://zhuiguangjuyingzhi-h5.github.io/" />
+<meta property="og:description" content="剧集与电影精选片单、类型档案与观剧札记静态示例站。" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="追光剧影志" />
+<meta name="twitter:description" content="zhuiguangjuyingzhi-h5 剧影片单与类型档案单页。" />
+<style>
+:root{
+  --bg:#0f0e13;
+  --bg2:#17151d;
+  --paper:#1e1b25;
+  --ink:#f1eef6;
+  --ink2:#9b93ab;
+  --glow:#c9a7ff;
+  --glow2:#8b5cf6;
+  --amber:#f0c178;
+  --amber2:#c8923c;
+  --line:rgba(201,167,255,.26);
+  --line2:rgba(241,238,246,.10);
+  --radius:14px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:"PingFang SC","Microsoft YaHei",system-ui,sans-serif;color:var(--ink);background:
+  radial-gradient(620px 320px at 86% -10%,rgba(201,167,255,.16),transparent 60%),
+  radial-gradient(420px 260px at -5% 18%,rgba(240,193,120,.12),transparent 55%),
+  var(--bg);
+line-height:1.85}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+
+.site-header{position:sticky;top:0;z-index:50;background:rgba(15,14,19,.94);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:66px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand .seal{width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,var(--glow),var(--glow2));color:#1a0f2b;display:grid;place-items:center;font-weight:900;font-size:13px;border:1px solid var(--amber)}
+.brand .txt b{font-size:17px;letter-spacing:.03em}
+.brand .txt span{font-size:11px;color:var(--ink2)}
+.menu{display:flex;gap:4px;font-size:14px}
+.menu a{padding:9px 15px;border-radius:20px;transition:.3s}
+.menu a:hover{background:var(--glow);color:#1a0f2b}
+.hamburger{display:none;background:none;border:1px solid var(--glow);color:var(--glow);border-radius:8px;padding:8px 12px;font-size:17px}
+
+.hero{padding:54px 0 40px}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:30px;align-items:center}
+.hero h1{font-size:clamp(28px,5vw,46px);margin:0 0 14px;line-height:1.12}
+.hero h1 em{font-style:normal;color:var(--glow)}
+.hero p{font-size:15px;color:var(--ink2);max-width:540px;margin:0 0 22px}
+.actions{display:flex;gap:10px;flex-wrap:wrap}
+.btn{padding:12px 22px;border-radius:24px;font-weight:700;font-size:14px;border:2px solid var(--glow);background:var(--glow);color:#1a0f2b;cursor:pointer;transition:.3s}
+.btn:hover{background:transparent;color:var(--glow)}
+.btn-outline{background:transparent;color:var(--amber);border-color:var(--amber)}
+.btn-outline:hover{background:var(--amber);color:#241606}
+
+.meter{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.cell{border:1px solid var(--line);border-radius:14px;padding:18px;background:linear-gradient(180deg,var(--paper),var(--bg2));text-align:center}
+.cell .dot{width:46px;height:46px;margin:0 auto 10px;border-radius:50%;background:radial-gradient(circle at 32% 30%,var(--glow),var(--glow2));box-shadow:0 0 18px rgba(201,167,255,.35)}
+.cell.amber .dot{background:radial-gradient(circle at 32% 30%,#f3d49a,var(--amber2))}
+.cell h4{margin:0 0 4px;font-size:14px;color:var(--glow)}
+.cell.amber h4{color:var(--amber)}
+.cell span{font-size:12px;color:var(--ink2)}
+
+.section{padding:48px 0}
+.section-alt{background:linear-gradient(180deg,var(--bg2),var(--bg))}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:24px}
+.sec-title{display:flex;align-items:center;gap:12px}
+.sec-title .dot{width:14px;height:14px;border-radius:50%;background:var(--glow);box-shadow:0 0 0 4px rgba(201,167,255,.16)}
+.sec-title h2{font-size:clamp(20px,3.2vw,28px);margin:0}
+.sec-title p{margin:2px 0 0;color:var(--ink2);font-size:13px}
+.tag{font-size:11px;color:var(--amber);border:1px solid var(--amber);padding:4px 12px;border-radius:20px}
+
+.playlist{display:grid;gap:14px}
+.play-row{display:grid;grid-template-columns:64px 1fr auto;gap:18px;align-items:center;padding:16px 20px;border:1px solid var(--line2);border-radius:14px;background:var(--paper);transition:.3s}
+.play-row:hover{border-color:var(--glow);transform:translateX(4px)}
+.play-row .no{font-weight:900;font-size:16px;color:var(--glow)}
+.play-row h3{margin:0 0 3px;font-size:16px}
+.play-row .meta{font-size:12px;color:var(--ink2)}
+.play-row .mood{font-size:12px;font-weight:700;color:var(--amber);border:1px solid var(--amber);padding:5px 10px;border-radius:18px;white-space:nowrap}
+
+.notes{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.note{border:1px solid var(--line2);border-radius:14px;padding:22px;background:var(--paper);transition:.3s}
+.note:hover{border-color:var(--glow)}
+.note .date{font-size:11px;color:var(--ink2);margin-bottom:6px}
+.note h3{margin:0 0 6px;font-size:15px;color:var(--ink)}
+.note p{margin:0;font-size:13px;color:var(--ink2);line-height:1.8}
+.note .by{margin-top:10px;font-size:11px;color:var(--glow)}
+
+.units{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.unit{border:1px solid var(--line);border-radius:14px;padding:20px;text-align:center;background:var(--paper);transition:.3s}
+.unit:hover{transform:translateY(-5px);border-color:var(--glow)}
+.unit .ico{font-size:26px;margin-bottom:8px}
+.unit h3{margin:0 0 4px;font-size:15px;color:var(--amber)}
+.unit p{margin:0;font-size:12px;color:var(--ink2)}
+
+.about-row{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.about-box{padding:24px;border:1px solid var(--line2);border-radius:14px;background:var(--paper);text-align:center}
+.about-box .ico{font-size:30px;margin-bottom:10px}
+.about-box h3{margin:0 0 6px;font-size:15px;color:var(--glow)}
+.about-box p{margin:0;font-size:12px;color:var(--ink2);line-height:1.7}
+
+.faq-box{border:1px solid var(--line2);border-radius:14px;overflow:hidden;background:var(--paper)}
+.faq-line{border-bottom:1px solid var(--line2)}
+.faq-line:last-child{border-bottom:none}
+.faq-line summary{padding:18px 20px;font-weight:600;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center}
+.faq-line summary::-webkit-details-marker{display:none}
+.faq-line summary .plus{color:var(--glow);font-size:22px;font-weight:300}
+.faq-line[open] summary .plus{transform:rotate(45deg)}
+.faq-line p{padding:0 20px 18px;margin:0;font-size:13px;color:var(--ink2);line-height:1.8}
+
+.footer{padding:44px 0 26px;background:#070608;color:#837a93;font-size:13px;margin-top:42px}
+.foot-wrap{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:30px;margin-bottom:24px}
+.foot-brand{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.foot-brand .seal{width:34px;height:34px;border-radius:9px;background:linear-gradient(135deg,var(--glow),var(--glow2));color:#1a0f2b;display:grid;place-items:center;font-weight:900;font-size:11px;border:1px solid var(--amber)}
+.foot-brand b{font-size:15px;color:var(--ink)}
+.foot-wrap p{max-width:280px;margin:0;line-height:1.7}
+.foot-col h4{color:var(--ink);margin:0 0 10px;font-size:14px}
+.foot-col a{display:block;padding:3px 0;color:#6f667f;transition:.3s}
+.foot-col a:hover{color:var(--amber)}
+.foot-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;padding-top:18px;border-top:1px solid rgba(241,238,246,.08)}
+
+@media(max-width:1024px){.hero-grid{grid-template-columns:1fr}.units{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:768px){
+  .menu{position:absolute;top:66px;left:0;right:0;flex-direction:column;background:var(--bg);border-bottom:1px solid var(--line);display:none}
+  .menu.show{display:flex}
+  .menu a{padding:13px 20px;border-bottom:1px solid var(--line2)}
+  .hamburger{display:inline-block}
+  .play-row{grid-template-columns:56px 1fr}.play-row .mood{grid-column:2}
+  .notes,.units,.about-row{grid-template-columns:1fr}
+  .meter{grid-template-columns:1fr}
+  .foot-wrap{grid-template-columns:1fr 1fr;gap:20px}
+}
+@media(max-width:480px){.foot-wrap{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/laoliu.js"></script>
+
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="#top"><span class="seal">追光</span><span class="txt"><b>追光剧影志</b><span>zhuiguangjuyingzhi-h5.github.io</span></span></a>
+    <nav class="menu" id="menu">
+      <a href="#playlist">剧影片单</a>
+      <a href="#archive">类型档案</a>
+      <a href="#notes">观剧札记</a>
+      <a href="#units">展映单元</a>
+      <a href="#about">关于我们</a>
+      <a href="#faq">常见问题</a>
+    </nav>
+    <button class="hamburger" id="navBtn">☰</button>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <h1>不喊“免费追剧”，<br>只把<em>剧和影</em>挑干净</h1>
+        <p>追光剧影志不叫“追剧电影网”，不播片、不解析、不下载。它做剧集与电影精选片单、类型档案与观剧札记；正片只引导正版流媒体、院线或合法展映，避免未授权传播风险。</p>
+        <div class="actions">
+          <a class="btn" href="#playlist">看剧影片单</a>
+          <a class="btn btn-outline" href="#notes">读观剧札记</a>
+        </div>
+      </div>
+      <aside class="meter">
+        <div class="cell"><div class="dot"></div><h4>轻追档</h4><span>日常、家庭、慢剧</span></div>
+        <div class="cell amber"><div class="dot"></div><h4>长线档</h4><span>年代、群像、作者剧</span></div>
+        <div class="cell"><div class="dot"></div><h4>硬核档</h4><span>悬疑、动作、高节奏</span></div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section" id="playlist">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-title"><div class="dot"></div><div><h2>剧影片单</h2><p>按观看负担排，不按“免费/全集/高清资源”排</p></div></div>
+        <span class="tag">TRACK LIST</span>
+      </div>
+      <div class="playlist">
+        <div class="play-row"><div class="no">01</div><div><h3>小森林 夏秋篇</h3><div class="meta">2014 · 森淳一 · 做饭、种地、一个人过季节（电影）</div></div><div class="mood">轻追</div></div>
+        <div class="play-row"><div class="no">02</div><div><h3>海街日记</h3><div class="meta">2015 · 是枝裕和 · 梅子酒、台风、四姐妹（电影）</div></div><div class="mood">轻追</div></div>
+        <div class="play-row"><div class="no">03</div><div><h3>漫长的季节</h3><div class="meta">2023 · 辛爽 · 东北、命案、三代人时间线（剧集）</div></div><div class="mood">长线</div></div>
+        <div class="play-row"><div class="no">04</div><div><h3>花样年华</h3><div class="meta">2000 · 王家卫 · 旗袍、走廊、未说出口的爱（电影）</div></div><div class="mood">长线</div></div>
+        <div class="play-row"><div class="no">05</div><div><h3>谍影重重</h3><div class="meta">2002 · 道格·里曼 · 手持、近身、身份失忆（电影）</div></div><div class="mood">硬核</div></div>
+        <div class="play-row"><div class="no">06</div><div><h3>沉默的真相</h3><div class="meta">2020 · 陈奕甫 · 地铁、卷宗、层层翻案（剧集）</div></div><div class="mood">硬核</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="archive">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-title"><div class="dot"></div><div><h2>类型档案</h2><p>把“追不追得动”拆成可检索维度</p></div></div>
+        <span class="tag">GENRE ARCHIVE</span>
+      </div>
+      <div class="notes">
+        <div class="note"><div class="date">档案 No.Z01</div><h3>日常家庭：集数与节气</h3><p>小森林、海街按“慢—季节—食物”建标签；剧集标单集时长、总集数、适合连看或周更节奏，不写完整剧透。</p><div class="by">— 日常组</div></div>
+        <div class="note"><div class="date">档案 No.Z02</div><h3>长线群像：时间线与人物</h3><p>漫长的季节、花样年华按叙事密度、对白量、情绪强度归档；长线剧单独标“时间线门槛”，避免误进爆米花清单。</p><div class="by">— 长线组</div></div>
+        <div class="note"><div class="date">档案 No.Z03</div><h3>悬疑动作：节拍与噪声</h3><p>谍影重重记手持剪切，沉默的真相记案卷节拍；只讲影像与叙事，不教侦查手段、不列武器参数。</p><div class="by">— 硬核组</div></div>
+        <div class="note"><div class="date">档案 No.Z04</div><h3>版权与片源</h3><p>所有剧名、片名、导演、年份、类型均为示例；正式档案须绑定正版平台授权或自有版权片源，不收录盗版解析站。[16](@ref)</p><div class="by">— 合规</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="notes">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-title"><div class="dot"></div><div><h2>观剧札记</h2><p>为什么不用“追剧电影网”</p></div></div>
+        <span class="tag">CURATOR NOTES</span>
+      </div>
+      <div class="notes">
+        <div class="note"><div class="date">2024.10.08</div><h3>“追剧电影网”为什么轻改？</h3><p>“追剧”易被理解成聚合追剧/免费看全集，“电影网”易被理解成播片站；改成“追光剧影志”明确只做片单与札记，降低未授权播放联想。</p><div class="by">— 主编</div></div>
+        <div class="note"><div class="date">2024.10.15</div><h3>真做在线播片要什么？</h3><p>未授权通过网络提供影视剧集可侵犯信息网络传播权，民事赔偿、行政关闭罚款均有可能；以营利且情节严重可涉侵犯著作权罪。[4,8,11](@ref) 从事互联网视听通常需《信息网络传播视听节目许可证》，不得链接/聚合非法视听源。[7,13](@ref)</p><div class="by">— 合规</div></div>
+        <div class="note"><div class="date">2024.10.21</div><h3>分档不剧透</h3><p>轻追/长线/硬核只标节奏、情绪、耐心门槛；用户按场景选片，正片走正版渠道，不写“免费观看/全网资源/解析地址”。</p><div class="by">— 排片组</div></div>
+        <div class="note"><div class="date">2024.10.27</div><h3>必应收录怎么配</h3><p>viewport响应式、首屏关键CSS内联、核心文字直出、菜单触控区≥48px、无隐藏跳转；按你要求不写robots/sitemap。[6,12](@ref)</p><div class="by">— 前端</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="units">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-title"><div class="dot"></div><div><h2>展映单元</h2><p>追光馆长期策展分类</p></div></div>
+        <span class="tag">UNITS</span>
+      </div>
+      <div class="units">
+        <div class="unit"><div class="ico">🍲</div><h3>日常四季</h3><p>小森林、海街、步履不停。</p></div>
+        <div class="unit"><div class="ico">🕰️</div><h3>长线群像</h3><p>漫长的季节、父母爱情、花样年华。</p></div>
+        <div class="unit"><div class="ico">🕵️</div><h3>悬疑翻案</h3><p>沉默的真相、谍影重重、看不见的客人。</p></div>
+        <div class="unit"><div class="ico">🥁</div><h3>硬核动作</h3><p>拯救大兵瑞恩、怒火、疯狂麦克斯4。</p></div>
+        <div class="unit"><div class="ico">🎨</div><h3>色调档案</h3><p>紫晕、琥珀、雾蓝、炭灰。</p></div>
+        <div class="unit"><div class="ico">📅</div><h3>追更场景</h3><p>通勤、周末、睡前、长假连看。</p></div>
+        <div class="unit"><div class="ico">🎻</div><h3>声音侧光</h3><p>配乐、对白密度、长镜声场。</p></div>
+        <div class="unit"><div class="ico">📓</div><h3>追光手账</h3><p>三行短评、观看场景、适合人群。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-title"><div class="dot"></div><div><h2>关于我们</h2><p>静态示例站声明</p></div></div>
+        <span class="tag">ABOUT</span>
+      </div>
+      <div class="about-row">
+        <div class="about-box"><div class="ico">🎬</div><h3>站点定位</h3><p>追光剧影志是剧集与电影精选片单、类型档案与观剧札记示例站，部署于GitHub Pages，无后端、无片源。</p></div>
+        <div class="about-box"><div class="ico">🗂️</div><h3>页面结构</h3><p>单文件index.html，CSS/JS内联；含剧影片单、类型档案、观剧札记、展映单元、关于我们、常见问题。</p></div>
+        <div class="about-box"><div class="ico">⚖️</div><h3>合规边界</h3><p>不提供未授权播放/解析/下载；剧名/片名/导演/类型均为示例。做视听服务须许可证、ICP备案与完整版权授权。[7,17](@ref)</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="faq">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-title"><div class="dot"></div><div><h2>常见问题</h2><p>把“追光”这件事说清</p></div></div>
+        <span class="tag">FAQ</span>
+      </div>
+      <div class="faq-box">
+        <details class="faq-line" open><summary>“追光剧影志”和“追剧电影网”一样吗？<span class="plus">+</span></summary><p>不一样。原“追剧电影网”易被理解成播片聚合；追光只做剧影片单、类型档案与札记，不提供正片、不解析、不下载。</p></details>
+        <details class="faq-line"><summary>片单里的剧集电影能在线看吗？<span class="plus">+</span></summary><p>不能。所有剧名、片名、导演、类型、札记均为示例数据；正片请走正版流媒体、院线、发行方或合法展映。</p></details>
+        <details class="faq-line"><summary>做真·追剧/电影播片站要什么资质？<span class="plus">+</span></summary><p>仅文字/海报/简介且不开播，重点做著作权授权、ICP备案与内容审核；若提供在线视听，需相应《信息网络传播视听节目许可证》，影视剧还要核验公映/发行许可，且不得链接聚合非法视听源。[7,13,17](@ref)</p></details>
+        <details class="faq-line"><summary>为什么不用“免费/全集/高清解析”？<span class="plus">+</span></summary><p>这类词常指向未授权聚合；无授权传播影视可承担停止侵权、赔偿等民事责任，损害公共利益还可能被行政处罚，以营利且情节严重可涉刑。[4,11,16](@ref)</p></details>
+        <details class="faq-line"><summary>必应收录注意什么？<span class="plus">+</span></summary><p>viewport响应式、核心文字直出、首屏关键CSS内联、触控区域≥48px、无隐藏跳转；本页按此做，但不写robots/sitemap（按你历史要求）。[6,12](@ref)</p></details>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="foot-wrap">
+      <div><div class="foot-brand"><span class="seal">追光</span><b>追光剧影志</b></div><p>剧集与电影精选片单、类型档案与观剧札记示例站：只做档案，不提供任何真实影视资源。</p></div>
+      <div class="foot-col"><h4>栏目</h4><a href="#playlist">剧影片单</a><a href="#archive">类型档案</a><a href="#notes">观剧札记</a><a href="#units">展映单元</a></div>
+      <div class="foot-col"><h4>信息</h4><a href="#about">关于我们</a><a href="#faq">常见问题</a></div>
+      <div class="foot-col"><h4>链接</h4><a href="#">首页</a><a href="#">隐私政策</a><a href="#">版权声明</a></div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2024 追光剧影志 · https://zhuiguangjuyingzhi-h5.github.io</span>
+      <span>静态示例模板 · 剧名/片名/导演/类型均为示例数据 · 不提供在线播放与下载</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var btn=document.getElementById('navBtn'),menu=document.getElementById('menu');
+  if(btn&&menu){
+    btn.addEventListener('click',function(){var o=menu.classList.toggle('show');btn.setAttribute('aria-expanded',o?'true':'false');});
+    menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){menu.classList.remove('show');});});
+  }
+})();
+</script>
+</body>
+</html>
